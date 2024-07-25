@@ -22,7 +22,6 @@ def RemoveContainer(container_name):
 
 def RunOrcaBot ():
     try:
-        #docker run -it --name orcabot --restart=always --shm-size=100G -v /homeFAST/OrcaBot/Settings:/OrcaBot/Resources -v /homeFAST/OrcaBot/OrcaJobsArchive:/OrcaJobsArchive mrdnalex/orcabot
         subprocess.run(['docker', 'run', '-it', '--name', 'orcabot', '--restart=always', '--shm-size=100G', '-v', '/home/mrdna/Projects/OrcaBot/Settings:/OrcaBot/Resources', '-v', '/home/mrdna/Projects/OrcaBot/OrcaArchive:/OrcaJobsArchive ','mrdnalex/orcabot'], check=True)
         print(f"Container {container_name} removed successfully.")
     except subprocess.SubprocessError as e:
